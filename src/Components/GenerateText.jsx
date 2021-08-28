@@ -1,7 +1,8 @@
 import faker from "faker";
 
-let GenerateText = ({ count = 10 }) => {
-	let para = faker.random.words(count).split('-').join(" ").toLowerCase();
+let GenerateText = ({ paraLengths, paraIndex }) => {
+	const string = faker.random.words(paraLengths[paraIndex]);
+	const para = string.split('-').join(" ").toLowerCase();
 	return (
 		<>
 			<div className="displayText">
