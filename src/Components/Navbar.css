@@ -1,14 +1,14 @@
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+}
 
+body {
+    background-color: #34495e;
 }
-body{
-    
-  background-color: #34495e;
-}
-.Navbar{
+
+.Navbar {
     display: flex;
     align-items: center;
     /* justify-content: space-between; */
@@ -18,7 +18,7 @@ body{
     height: 10rem;
 }
 
-.Heading{
+.Heading {
     font-size: 5rem;
     height: 100%;
     font-family: fantasy;
@@ -28,7 +28,8 @@ body{
     text-shadow: 5px 5px 2px #000;
     transition: ease-in-out linear;
 }
-.tools{
+
+.tools {
     width: 35%;
     display: flex;
     align-items: flex-end;
@@ -38,7 +39,8 @@ body{
     padding-bottom: 15px;
     
 }
-.tools>div{
+
+.tools>div {
     height: 30px;
     margin: 0 1rem ;
     font-family:'Courier New', Courier, monospace;
@@ -51,12 +53,14 @@ body{
     padding: 10px;
     
 }
-.account-name{
+
+.account-name {
     height: 100%;
     padding-bottom: 20px;
     margin-bottom: 10px;
 }
-.count-of-words{
+
+.count-of-words {
     width: 20%;
     height: 30px;
     margin: 0 1rem ;
@@ -68,18 +72,19 @@ body{
     flex-direction: column;
     cursor: pointer;
     padding: 10px;
-    
 }
 
-.set-count{
+.set-count {
     width: 100%;
     display: flex;
     align-items:baseline;
     justify-content: space-between;
 }
-.active-count{
+
+.active-count {
     color:chartreuse
 }
-.word-count:hover ,.text-tools:hover, .tools>div:hover{
+
+.word-count:hover ,.text-tools:hover, .tools>div:hover {
     color:white;
 }
