@@ -17,6 +17,7 @@ let GenerateText = ({ paraLengths, paraIndex }) => {
 		for (let i = 0; i < array.length; i++)
 			states[i] = "not-typed";
 		setStates(states);
+		setCursor(0);
 	}, [paraLengths, paraIndex]);
 
 	// Run after every render
