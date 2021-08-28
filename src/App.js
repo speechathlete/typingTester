@@ -4,7 +4,7 @@ import GenerateText from './Components/GenerateText';
 import Navbar from './Components/Navbar';
 
 let App = () => {
-	let [paraIndex, setParaIndex] = useState(0);
+	const [paraIndex, setParaIndex] = useState(0);
 	const state = { paraLengths: [10, 20, 30, 50], paraIndex, setParaIndex };
 	return (
 		<>
