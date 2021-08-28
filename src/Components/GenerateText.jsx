@@ -10,12 +10,11 @@ let GenerateText = ({ paraLengths, paraIndex }) => {
 	// Run after first render
 	useEffect(() => {
 		const string = faker.random.words(paraLengths[paraIndex]);
-		const para = string.split('-').join(" ").toLowerCase();
+		const para = string.split("-").join(" ").toLowerCase();
 		const array = para.split("");
 		setCharacters(array);
 		const states = new Array(array.length);
-		for (let i = 0; i < array.length; i++)
-			states[i] = "not-typed";
+		states.fill("not-typed");
 		setStates(states);
 		setCursor(0);
 	}, [paraLengths, paraIndex]);
@@ -23,7 +22,7 @@ let GenerateText = ({ paraLengths, paraIndex }) => {
 	// Run after every render
 	useEffect(() => {
 		const listener = ({ key }) => {
-			if ((key >= 'a' && key <= 'z') || key === ' ') {
+			if ((key >= "a" && key <= "z") || key === " ") {
 				if (characters[cursor] === key) {
 					states[cursor] = "typed-correctly";
 					setCursor(cursor + 1);
@@ -33,19 +32,42 @@ let GenerateText = ({ paraLengths, paraIndex }) => {
 				}
 			}
 		};
-		window.addEventListener('keyup', listener);
-		return () => window.removeEventListener('keyup', listener);
+		window.addEventListener("keyup", listener);
+		return () => window.removeEventListener("keyup", listener);
 	});
 	return (
 		<>
 			<div className="displayText">
-				<p>{states.map((char, index) => (index === cursor
-					? <span key={index} className={states[index]}>{characters[index]}</span>
-					: <span key={index} className={states[index]}>{characters[index]}</span>
-				))}</p>
+				<p>
+					{states.map((char, index) =>
+						index === cursor ? (
+							<span key={index} className={`${states[index]} cursor-border`}>
+								{characters[index]}
+							</span>
+						) : (
+							<span key={index} className={states[index]}>
+								{characters[index]}
+							</span>
+						)
+					)}
+				</p>
 			</div>
 			<div className="text-tools">
-				<i className="material-icons-round">replay</i>
+				<div
+					onClick={() => {
+						const string = faker.random.words(paraLengths[paraIndex]);
+						const para = string.split("-").join(" ").toLowerCase();
+						const array = para.split("");
+						setCharacters(array);
+						const states = new Array(array.length);
+						states.fill("not-typed");
+						setStates(states);
+						setCursor(0);
+					}}
+					className="restart"
+				>
+					<i className="material-icons-round">replay</i>
+				</div>
 			</div>
 		</>
 	);
