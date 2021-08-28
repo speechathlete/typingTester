@@ -1,0 +1,11 @@
+.not-typed {
+	color: #646669
+}
+
+.typed-correctly {
+	color: #d1d0c5
+}
+
+.typed-incorrectly {
+	color: red
+}
