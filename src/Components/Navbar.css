@@ -54,11 +54,10 @@ body {
     
 }
 
-.account-name {
-    height: 100%;
-    padding-bottom: 20px;
-    margin-bottom: 10px;
+.btn{
+	color: black;
 }
+
 
 .count-of-words {
     width: 20%;
@@ -85,6 +84,6 @@ body {
     color:chartreuse
 }
 
-.word-count:hover ,.text-tools:hover, .tools>div:hover {
+.word-count:hover ,.btn:hover,.text-tools:hover{
     color:white;
 }
