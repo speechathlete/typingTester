@@ -31,8 +31,12 @@ let GenerateText = ({ paraLengths, paraIndex }) => {
 			if ((key >= "a" && key <= "z") || key === " " || (key >= 0 && key <= 9)) {
 				if (characters[cursor] === key) {
 					keypress();
-					states[cursor] = "typed-correctly";
-					setCursor(cursor + 1);
+					if (cursor === characters.length - 1)
+						init();
+					else {
+						states[cursor] = "typed-correctly";
+						setCursor(cursor + 1);
+					}
 				}
 				else {
 					error();
