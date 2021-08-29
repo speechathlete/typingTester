@@ -6,17 +6,23 @@ import errorKey from '../sounds/error.m4a';
 import useSound from 'use-sound';
 
 let GenerateText = ({ paraLengths, paraIndex }) => {
-	const [keypress] = useSound(correctKey);
-	const [error] = useSound(errorKey);
+	const [keypress] = useSound(correctKey, { volume: 0.15 });
+	const [error] = useSound(errorKey, { volume: 0.15 });
 	const [states, setStates] = useState([]);
 	const [characters, setCharacters] = useState([]);
 	const [cursor, setCursor] = useState(0);
+
 	const init = () => {
-		const string = faker.random.words(paraLengths[paraIndex]);
-		const para = string.split("-").join(" ").toLowerCase();
-		const array = para.split("");
-		setCharacters(array);
-		const states = new Array(array.length);
+		const noOfWords = paraLengths[paraIndex];
+		const arrayOfWords = faker.random.words(noOfWords).toLowerCase().replaceAll('-', ' ').split(' ');
+		arrayOfWords.length = noOfWords;
+		const string = arrayOfWords.join(' ');
+		const arrayOfChars = [];
+		for (const char of string)
+			if ((char >= 'a' && char <= 'z') || char === ' ')
+				arrayOfChars.push(char);
+		setCharacters(arrayOfChars);
+		const states = new Array(arrayOfChars.length);
 		states.fill("not-typed");
 		setStates(states);
 		setCursor(0);
@@ -28,7 +34,7 @@ let GenerateText = ({ paraLengths, paraIndex }) => {
 	// Run after every render
 	useEffect(() => {
 		const listener = ({ key }) => {
-			if ((key >= "a" && key <= "z") || key === " " || (key >= 0 && key <= 9)) {
+			if ((key >= "a" && key <= "z") || key === " ") {
 				if (characters[cursor] === key) {
 					keypress();
 					if (cursor === characters.length - 1)
