@@ -1,8 +1,14 @@
 import "./GenerateText.css";
 import React, { useEffect, useState } from "react";
 import faker from "faker";
+import correctKey from '../keypress.mp3';
+import errorKey from '../error.m4a';
+import useSound from 'use-sound';
+
 
 let GenerateText = ({ paraLengths, paraIndex }) => {
+	const [keypress] = useSound(correctKey);
+	const [error] = useSound(errorKey);
 	const [states, setStates] = useState([]);
 	const [characters, setCharacters] = useState([]);
 	const [cursor, setCursor] = useState(0);
@@ -22,15 +28,21 @@ let GenerateText = ({ paraLengths, paraIndex }) => {
 	// Run after every render
 	useEffect(() => {
 		const listener = ({ key }) => {
-			if ((key >= "a" && key <= "z") || key === " ") {
+			if ((key >= "a" && key <= "z") || key === " " ||(key >= 0 && key <= 9) ) {
 				if (characters[cursor] === key) {
+					keypress();
 					states[cursor] = "typed-correctly";
 					setCursor(cursor + 1);
-				} else {
+				}
+				else {
+					error();	
 					states[cursor] = "typed-incorrectly";
+					// setCursor(cursor + 1); //if we want to keep the word as wrong 
 					setStates([...states]);
+				
 				}
 			}
+			
 		};
 		window.addEventListener("keyup", listener);
 		return () => window.removeEventListener("keyup", listener);
