@@ -4,7 +4,7 @@ import "./DonePage.css"
 const DonePage = ({ time, characters, words, cpm, wpm, accuracy, onRestart }) => (
 	<>
 		<div className="data">
-			<h2>Time: {time}ms</h2>
+			<h2>Time: {time}s</h2>
 			<h2>Characters: {characters}</h2>
 			<h2>Words: {words}</h2>
 			<h2>CPM: {cpm}</h2>
