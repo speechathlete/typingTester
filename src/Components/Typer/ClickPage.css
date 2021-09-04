@@ -1,0 +1,17 @@
+.clickPage {
+	width: 100%;
+	text-align: center
+}
+
+.button {
+  transition-duration: 0.4s;
+  background-color: background-color;
+  color: black;
+  padding: 32px;
+  font-size: 32px;
+}
+
+.button:hover {
+  background-color: #4CAF50; 
+  color: white;
+}
