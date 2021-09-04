@@ -1,39 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import GenerateText from "./GenerateText";
 import ClickPage from "./ClickPage";
 import DonePage from "./DonePage";
 
-class Typer extends React.Component {
+const Typer = props => {
+	const [focus, setFocus] = useState(false);
+	const [data, setData] = useState(null);
 
-	state = {
-		focus: false,
-		data: null
-	};
+	useEffect(() => {
+		const onBlur = () => setFocus(false);
+		window.addEventListener('blur', onBlur);
+		return () => window.removeEventListener('blur', onBlur);
+	});
 
-	componentDidMount() {
-		window.addEventListener('blur', this.onBlur);
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener('blur', this.onBlur);
-	}
-
-	onBlur = () => this.setState({ focus: false });
-
-	onComplete = data => this.setState({ data });
-
-	onPlay = () => this.setState({ focus: true });
-
-	onRestart = () => this.setState({ data: null });
-
-	render() {
-		if (this.state.data != null)
-			return <DonePage {...this.state.data} onRestart={this.onRestart} />;
-		else if (this.state.focus)
-			return <GenerateText {...this.props} onComplete={this.onComplete} />;
-		else
-			return <ClickPage onPlay={this.onPlay} />;
-	}
+	if (data != null)
+		return <DonePage {...data} onRestart={() => setData(null)} />;
+	else if (focus)
+		return <GenerateText {...props} onComplete={setData} />;
+	else
+		return <ClickPage onPlay={() => setFocus(true)} />;
 }
 
 export default Typer;
