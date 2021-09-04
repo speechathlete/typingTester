@@ -1,14 +1,15 @@
 import React from "react";
+import "./DonePage.css"
 
 const DonePage = ({ time, characters, words, cpm, wpm, accuracy, onRestart }) => (
 	<>
-		<div>
-			<div>Time: {time}ms</div>
-			<div>Characters: {characters}</div>
-			<div>Words: {words}</div>
-			<div>CPM: {cpm}</div>
-			<div>WPM: {wpm}</div>
-			<div>Accuracy: {accuracy}%</div>
+		<div className="data">
+			<h2>Time: {time}ms</h2>
+			<h2>Characters: {characters}</h2>
+			<h2>Words: {words}</h2>
+			<h2>CPM: {cpm}</h2>
+			<h2>WPM: {wpm}</h2>
+			<h2>Accuracy: {accuracy}%</h2>
 		</div>
 		<div className="text-tools">
 			<div
