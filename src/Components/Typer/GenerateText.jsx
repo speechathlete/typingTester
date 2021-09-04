@@ -1,16 +1,18 @@
 import "./GenerateText.css";
 import React, { useEffect, useState } from "react";
 import faker from "faker";
-import correctKey from '../sounds/keypress.mp3';
-import errorKey from '../sounds/error.m4a';
+import correctKey from './sounds/keypress.mp3';
+import errorKey from './sounds/error.m4a';
 import useSound from 'use-sound';
 
-let GenerateText = ({ paraLengths, paraIndex }) => {
+let GenerateText = ({ paraLengths, paraIndex, onComplete }) => {
 	const [keypress] = useSound(correctKey, { volume: 0.15 });
 	const [error] = useSound(errorKey, { volume: 0.15 });
 	const [states, setStates] = useState([]);
 	const [characters, setCharacters] = useState([]);
 	const [cursor, setCursor] = useState(0);
+	const [startTime, setStartTime] = useState(0);
+	const [charactersTyped, setCharactersTyped] = useState(0);
 
 	const init = () => {
 		const noOfWords = paraLengths[paraIndex];
@@ -26,6 +28,8 @@ let GenerateText = ({ paraLengths, paraIndex }) => {
 		states.fill("not-typed");
 		setStates(states);
 		setCursor(0);
+		setStartTime(new Date().getTime());
+		setCharactersTyped(0);
 	};
 
 	// Run after first render
@@ -35,11 +39,21 @@ let GenerateText = ({ paraLengths, paraIndex }) => {
 	useEffect(() => {
 		const listener = ({ key }) => {
 			if ((key >= "a" && key <= "z") || key === " ") {
+				setCharactersTyped(charactersTyped + 1);
 				if (characters[cursor] === key) {
 					keypress();
-					if (cursor === characters.length - 1)
-						init();
-					else {
+					if (cursor === characters.length - 1) {
+						const endTime = new Date().getTime();
+						const time = endTime - startTime;
+						onComplete({
+							time: Math.floor(time / 1000),
+							characters: characters.length,
+							words: paraLengths[paraIndex],
+							cpm: Math.floor(characters.length * 60000 / time),
+							wpm: Math.floor(paraLengths[paraIndex] * 60000 / time),
+							accuracy: Math.floor(characters.length * 100 / (charactersTyped + 1))
+						});
+					} else {
 						states[cursor] = "typed-correctly";
 						setCursor(cursor + 1);
 					}
