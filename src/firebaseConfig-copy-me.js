@@ -2,14 +2,16 @@ import firebase from 'firebase/compat/app';
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
 import "firebase/compat/storage";
+
 const firebaseConfig = {
 	apiKey: "",
-	authDomain:"" ,
+	authDomain: "",
 	projectId: "",
-	storageBucket:"",
-	messagingSenderId:"" ,
-	appId: 
+	storageBucket: "",
+	messagingSenderId: "",
+	appId: ""
 };
+
 firebase.initializeApp(firebaseConfig);
 
 let provider = new firebase.auth.GoogleAuthProvider();
