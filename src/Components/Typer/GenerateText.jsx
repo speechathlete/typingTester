@@ -31,6 +31,8 @@ let GenerateText = ({ paraLengths, paraIndex, onComplete }) => {
 		setCursor(0);
 		setStartTime(new Date().getTime());
 		setCharactersTyped(0);
+		setCorrectCharCount(0);
+		setIncorrectCharCount(0);
 	};
 
 	// Run after first render
