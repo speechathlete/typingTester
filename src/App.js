@@ -8,13 +8,15 @@ import Navbar from './Components/Navbar';
 
 let App = () => {
 	const [paraIndex, setParaIndex] = useState(0);
-	const state = { paraLengths: [20,30,50,70,100], paraIndex, setParaIndex };
+	const state = { paraLengths: [20, 30, 50, 70, 100], paraIndex, setParaIndex };
 	return (
 		<BrowserRouter>
 			<Navbar {...state} />
 			<Switch>
 				<Route path="/" exact>
-					<Typer {...state} />
+					<div className="Article" style={{ height: 'calc(100vh - 10rem)' }}>
+						<Typer {...state} />
+					</div>
 				</Route>
 				<Route path="/settings" exact>
 					<Settings />
