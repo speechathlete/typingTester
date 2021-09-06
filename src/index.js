@@ -2,12 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { initializeApp } from "firebase/app";
-import firebaseConfig from "./firebaseConfig";
-
-initializeApp(firebaseConfig);
-
+import AuthProvider from './AuthProvider'
 ReactDOM.render(
-	<App />,
+	<AuthProvider>
+
+	<App />
+	</AuthProvider>,
 	document.getElementById('root')
 );
