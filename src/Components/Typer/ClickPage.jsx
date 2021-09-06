@@ -3,7 +3,7 @@ import "./ClickPage.css"
 
 const ClickPage = ({ onPlay }) => (
 	<div className="clickPage">
-		<button className="button" onClick={onPlay}>Click to Play</button>
+		<button className="button" onClick={onPlay}>Click to Start</button>
 	</div>
 );
 

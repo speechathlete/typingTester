@@ -5,8 +5,9 @@
 }
 
 body{
-  background-color: #34495e;
+  background-color: #130f40;
   
+	color: #dff9fb;
 }
 
 .displayText{
@@ -18,10 +19,8 @@ body{
     position: absolute;
     top: 17rem;
     left: 15vw;
-    color: #f1c40f;
 }
 .text-tools{
-  
   position: absolute;
   top: 30rem;
   left: 50vw;

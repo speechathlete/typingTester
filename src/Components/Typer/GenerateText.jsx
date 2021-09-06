@@ -13,7 +13,8 @@ let GenerateText = ({ paraLengths, paraIndex, onComplete }) => {
 	const [cursor, setCursor] = useState(0);
 	const [startTime, setStartTime] = useState(0);
 	const [charactersTyped, setCharactersTyped] = useState(0);
-
+	const [correctCharCount,setCorrectCharCount]= useState(0);
+	const [incorrectCharCount,setIncorrectCharCount]= useState(0);
 	const init = () => {
 		const noOfWords = paraLengths[paraIndex];
 		const arrayOfWords = faker.random.words(noOfWords).toLowerCase().replaceAll('-', ' ').split(' ');
@@ -45,23 +46,24 @@ let GenerateText = ({ paraLengths, paraIndex, onComplete }) => {
 					if (cursor === characters.length - 1) {
 						const endTime = new Date().getTime();
 						const time = endTime - startTime;
+
 						onComplete({
-							time: Math.floor(time / 1000),
-							characters: characters.length,
-							words: paraLengths[paraIndex],
-							cpm: Math.floor(characters.length * 60000 / time),
-							wpm: Math.floor(paraLengths[paraIndex] * 60000 / time),
-							accuracy: Math.floor(characters.length * 100 / (charactersTyped + 1))
+							time:time/1000,
+							characters:characters.length,
+							words:paraLengths[paraIndex],
+							cpm:correctCharCount*60000/time,
+							accuracy:(correctCharCount/(correctCharCount+incorrectCharCount))*100
 						});
 					} else {
 						states[cursor] = "typed-correctly";
+						setCorrectCharCount(correctCharCount+1);
 						setCursor(cursor + 1);
 					}
 				}
 				else {
 					error();
 					states[cursor] = "typed-incorrectly";
-					// setCursor(cursor + 1); //if we want to keep the word as wrong 
+					setIncorrectCharCount(incorrectCharCount+1);
 					setStates([...states]);
 				}
 			}

@@ -1,15 +1,42 @@
 import React from "react";
 import "./DonePage.css"
 
-const DonePage = ({ time, characters, words, cpm, wpm, accuracy, onRestart }) => (
+const DonePage = ({ time, characters, words, cpm, accuracy, onRestart }) => (
 	<>
 		<div className="data">
-			<h2>Time: {time}s</h2>
-			<h2>Characters: {characters}</h2>
-			<h2>Words: {words}</h2>
-			<h2>CPM: {cpm}</h2>
-			<h2>WPM: {wpm}</h2>
-			<h2>Accuracy: {accuracy}%</h2>
+			<p>Great Job!!!!! user_name/guest</p>
+			<table>
+				<tr>
+					<td>Time</td>
+					<td>{time}s</td>
+				</tr>
+				<tr>
+					<td>Characters</td>
+					<td>{characters}</td>
+
+				</tr>
+				<tr>
+					<td>Words</td>
+					<td>{words}</td>
+
+				</tr>
+				<tr>
+					<td>CPM</td>
+					<td>{cpm.toFixed(0)}</td>
+
+				</tr>
+				<tr>
+					<td>WPM</td>
+					<td>{(cpm/5).toFixed(2)}</td>
+
+				</tr>
+				<tr>
+					<td>Accuracy</td>
+					<td> {accuracy}%</td>
+
+				</tr>
+			</table>
+			
 		</div>
 		<div className="text-tools">
 			<div

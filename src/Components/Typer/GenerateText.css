@@ -1,17 +1,16 @@
 .not-typed { 
-	color: #646669;
-	
+	color: #f1c40f;	
 }
 .cursor-border{
 	border-left:2px solid;
-	animation: blink .5s step-end infinite alternate;
+	animation: blink .75s step-end infinite alternate;
 }
 
 .restart{
 	cursor: pointer;
 }
 .typed-correctly {
-	color: #d1d0c5
+	color: #27ae60
 }
 
 .typed-incorrectly {

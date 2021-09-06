@@ -8,7 +8,7 @@ import Navbar from './Components/Navbar';
 
 let App = () => {
 	const [paraIndex, setParaIndex] = useState(0);
-	const state = { paraLengths: [5, 10, 20, 30, 50], paraIndex, setParaIndex };
+	const state = { paraLengths: [20,30,50,70,100], paraIndex, setParaIndex };
 	return (
 		<BrowserRouter>
 			<Navbar {...state} />
