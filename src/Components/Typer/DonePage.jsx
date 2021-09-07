@@ -1,11 +1,10 @@
 import React from "react";
 import "./DonePage.css"
 
-const DonePage = ({ time, characters, words, cpm, accuracy, onRestart }) => (
+const DonePage = ({ time, characters, cpm, accuracy, onRestart }) => (
 	<>
 		<div className="data">
-			<p>Great Job!!!!! Guest</p>
-			{/* Insert User Name Here */}
+			<p>Great Job</p>
 			<table>
 				<tr>
 					<td>Time</td>
@@ -14,14 +13,6 @@ const DonePage = ({ time, characters, words, cpm, accuracy, onRestart }) => (
 				<tr>
 					<td>Characters</td>
 					<td>{characters}</td>
-				</tr>
-				<tr>
-					<td>Words</td>
-					<td>{words}</td>
-				</tr>
-				<tr>
-					<td>CPM</td>
-					<td>{cpm.toFixed(0)}</td>
 				</tr>
 				<tr>
 					<td>WPM</td>
