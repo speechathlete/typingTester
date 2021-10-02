@@ -8,7 +8,7 @@ const AccountPage = () => {
 	if (user)
 		return (
 			<>
-				<img src={user.photoURL} align="right" />
+				<img src={user.photoURL} align="right" alt="User" />
 				<h2>Name: {user.displayName}</h2>
 				<h2>Email: {user.email}</h2>
 				<button onClick={auth.signOut}>LogOut</button>
