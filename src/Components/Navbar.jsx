@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import {Button,ButtonGroup} from '@material-ui/core'
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 
@@ -46,6 +47,7 @@ let Navbar = ({ paraLengths, paraIndex, setParaIndex }) => {
 					)}
 				</div>
 			</div>
+			
 		</div >
 	);
 };

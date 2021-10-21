@@ -22,6 +22,10 @@ body{
 }
 .text-tools{
   position: absolute;
-  top: 30rem;
+  top: 23rem;
   left: 50vw;
+}
+
+.Article{
+	position: relative;
 }
