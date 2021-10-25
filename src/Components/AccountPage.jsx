@@ -1,17 +1,15 @@
-import { useContext, useEffect } from "react";
-import { signInWithGoogle, auth } from "../firebaseConfig";
+import { useContext } from "react";
+import { signInWithGoogle, signOut } from "../firebase";
 import { authContext } from "../AuthProvider";
 
 const AccountPage = () => {
 	const user = useContext(authContext);
-	useEffect(() => console.log(user), [user]);
 	if (user)
 		return (
 			<>
-				<img src={user.photoURL} align="right" alt="User" />
 				<h2>Name: {user.displayName}</h2>
 				<h2>Email: {user.email}</h2>
-				<button onClick={auth.signOut}>LogOut</button>
+				<button onClick={signOut}>Log Out</button>
 			</>
 		);
 	else
