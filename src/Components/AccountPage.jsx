@@ -1,7 +1,6 @@
 import { useContext, useEffect } from "react";
 import { signInWithGoogle, auth,firebase } from "../firebaseConfig";
 import { authContext } from "../AuthProvider";
-import { Redirect } from "react-router-dom";
 let AccountPage = () => {
 	let user = useContext(authContext);
      useEffect(()=>{
@@ -9,6 +8,7 @@ let AccountPage = () => {
 	 },[user]);
 	return (
 	  <>
+	  {/* Google Authentication */}
 		{user?
 		(<>
 	    	<h1>LoggedIn</h1>

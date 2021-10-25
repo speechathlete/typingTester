@@ -99,6 +99,7 @@ let GenerateText = ({
                 (correctCharCount / (correctCharCount + incorrectCharCount)) *
                 100,
             });
+			// Store the data in the database if user present
           } else {
             states[cursor] = "typed-correctly";
             setCorrectCharCount(correctCharCount + 1);

@@ -12,7 +12,7 @@ let App = () => {
 	const [punctuations,setPunctuations] = useState(false);
 	const [sounds,setSounds] = useState(true);
 	const stateProps = { paraLengths: [20, 30, 50, 70, 100], paraIndex, setParaIndex ,capitalLetters,sounds,punctuations};
-	const settingProps = {setCapitalLetters,setCapitalLetters,setSounds,punctuations,sounds,capitalLetters}
+	const settingProps = {setCapitalLetters,setPunctuations,setSounds,punctuations,sounds,capitalLetters}
 	
 	return (
 		<BrowserRouter>
