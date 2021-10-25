@@ -2,12 +2,12 @@ import { Button, ButtonGroup } from "@material-ui/core";
 import { CheckBox, CheckBoxOutlineBlank } from "@material-ui/icons";
 import "./Settings.css";
 const Settings = ({
-  setCapitalLetters,
-  setPunctuations,
-  setSounds,
-  punctuations,
-  sounds,
-  capitalLetters,
+	setCapitalLetters,
+	setPunctuations,
+	setSounds,
+	punctuations,
+	sounds,
+	capitalLetters,
 }) => {
   return (
     <div className="setting-article">

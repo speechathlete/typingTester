@@ -1,38 +1,37 @@
 import React from "react";
-import "./DonePage.css"
+import { useContext } from "react";
+import DoneTable from "./DoneTable";
+import RestartButton from "./RestartButton";
+import { authContext } from "../../AuthProvider";
+import { updateLeaderBoard } from "../LeaderBoardPage";
+import LoginButton from "../LoginButton";
+import "./DonePage.css";
 
-const DonePage = ({ time, characters, cpm, accuracy, onRestart }) => (
-	<>
-		<div className="data">
-			<p>Great Job</p>
-			<table>
-				<tr>
-					<td>Time</td>
-					<td>{time.toFixed(0)}s</td>
-				</tr>
-				<tr>
-					<td>Characters</td>
-					<td>{characters}</td>
-				</tr>
-				<tr>
-					<td>WPM</td>
-					<td>{(cpm / 5).toFixed(1)}</td>
-				</tr>
-				<tr>
-					<td>Accuracy</td>
-					<td>{accuracy.toFixed(0)}%</td>
-				</tr>
-			</table>
-		</div>
-		<div className="text-tools">
-			<div
-				onClick={onRestart}
-				className="restart"
-			>
-				<i className="material-icons-round">replay</i>
-			</div>
-		</div >
-	</>
-);
+const DonePage = props => {
+	const user = useContext(authContext);
+	if (user) {
+		updateLeaderBoard(user.displayName, props.wpm);
+		return (
+			<>
+				<div className="data">
+					<p>Great Job {user.displayName}</p>
+					<DoneTable {...props} />
+				</div>
+				<RestartButton restart={props.onRestart} />
+			</>
+		);
+	} else {
+		return (
+			<>
+				<div className="data">
+					<p>Great Job</p>
+					<LoginButton />
+					<DoneTable {...props} />
+				</div>
+				<RestartButton restart={props.onRestart} />
+			</>
+		);
+	}
+}
 
 export default DonePage;
