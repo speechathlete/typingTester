@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { signInWithGoogle, signOut } from "../firebase";
+import { signOut } from "../firebase";
 import { authContext } from "../AuthProvider";
+import LoginButton from "./LoginButton";
 
 const AccountPage = () => {
 	const user = useContext(authContext);
@@ -13,11 +14,7 @@ const AccountPage = () => {
 			</>
 		);
 	else
-		return (
-			<button onClick={signInWithGoogle}>
-				Login with google
-			</button>
-		);
+		return <LoginButton />;
 };
 
 export default AccountPage;
