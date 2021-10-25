@@ -8,18 +8,23 @@ import Navbar from './Components/Navbar';
 
 let App = () => {
 	const [paraIndex, setParaIndex] = useState(0);
-	const state = { paraLengths: [20, 30, 50, 70, 100], paraIndex, setParaIndex };
+	const [capitalLetters,setCapitalLetters] = useState(false);
+	const [punctuations,setPunctuations] = useState(false);
+	const [sounds,setSounds] = useState(true);
+	const stateProps = { paraLengths: [20, 30, 50, 70, 100], paraIndex, setParaIndex ,capitalLetters,sounds,punctuations};
+	const settingProps = {setCapitalLetters,setCapitalLetters,setSounds,punctuations,sounds,capitalLetters}
+	
 	return (
 		<BrowserRouter>
-			<Navbar {...state} />
+			<Navbar {...stateProps} />
 			<Switch>
 				<Route path="/" exact>
 					<div className="Article" style={{ height: 'calc(100vh - 10rem)' }}>
-						<Typer {...state} />
+						<Typer {...stateProps}/> 
 					</div>
 				</Route>
 				<Route path="/settings" exact>
-					<Settings />
+					<Settings {...settingProps} />
 				</Route>
 				<Route path="/account" exact>
 					<AccountPage />

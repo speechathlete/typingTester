@@ -1,10 +1,6 @@
 .not-typed { 
 	color: #f1c40f;	
 }
-.cursor-border{
-	border-left:2px solid;
-	animation: blink .75s step-end infinite alternate;
-}
 
 .restart{
 	cursor: pointer;
@@ -15,9 +11,35 @@
 
 .typed-incorrectly {
 	color: red}
+	
+	@keyframes blink { 
+		50% {  
+		border-left: 1px solid transparent ;
+		}
+}
+	
+	
+.text-wrapper{
+   padding-left: .4rem;
+   position: absolute;
+   overflow: hidden;
+   height: 8rem;
+	width: 70vw;
+	left: 15vw;
+	top: 25vh;
 
-@keyframes blink { 
-	50% { border-color: transparent; } 
 }
 
-
+.display-text{
+	font-size: 2rem;;
+	height:8rem;
+	
+}
+.display-text>span{
+	margin-left: 1px;
+}
+.current-cursor{
+	border-left: 1px solid #f1c40f;
+	animation: blink .75s step-end infinite;
+	margin-left:0px;
+}

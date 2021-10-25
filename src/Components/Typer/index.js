@@ -6,11 +6,11 @@ import DonePage from "./DonePage";
 const Typer = props => {
 	const [focus, setFocus] = useState(false);
 	const [data, setData] = useState(null);
-
+	console.log(props);
 	useEffect(() => {
-		const onBlur = () => setFocus(false);
-		window.addEventListener('blur', onBlur);
-		return () => window.removeEventListener('blur', onBlur);
+		// const onBlur = () => setFocus(false);
+		// window.addEventListener('blur', onBlur);
+		// return () => window.removeEventListener('blur', onBlur);
 	});
 
 	if (data)
