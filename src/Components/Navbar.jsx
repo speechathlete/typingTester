@@ -1,9 +1,8 @@
-import "./Navbar.css";
-import {Button,ButtonGroup} from '@material-ui/core'
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+import "./Navbar.css";
 
-let Navbar = ({ paraLengths, paraIndex, setParaIndex }) => {
+const Navbar = ({ paraLengths, paraIndex, setParaIndex }) => {
 	const history = useHistory();
 	return (
 		<div className="Navbar">
@@ -16,14 +15,19 @@ let Navbar = ({ paraLengths, paraIndex, setParaIndex }) => {
 						<i className="material-icons-round"> home </i>
 					</Link>
 				</div>
-				<div >
-					<Link className="btn" to="/settings">
-						<i className="material-icons-round"> settings </i>
+				<div>
+					<Link className="btn" to="/leaderboard">
+						<i className="material-icons-round"> leaderboard </i>
 					</Link>
 				</div>
 				<div>
 					<Link className="btn" to="/account">
 						<i className="material-icons-round"> person </i>
+					</Link>
+				</div>
+				<div >
+					<Link className="btn" to="/settings">
+						<i className="material-icons-round"> settings </i>
 					</Link>
 				</div>
 			</div>
@@ -47,7 +51,6 @@ let Navbar = ({ paraLengths, paraIndex, setParaIndex }) => {
 					)}
 				</div>
 			</div>
-			
 		</div >
 	);
 };
