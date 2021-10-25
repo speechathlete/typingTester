@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AccountPage from "./Components/AccountPage";
+import LeaderBoardPage from "./Components/LeaderBoardPage";
 import Settings from './Components/Settings'
 import Typer from './Components/Typer/';
 import Navbar from './Components/Navbar';
@@ -11,8 +12,8 @@ const App = () => {
 	const [capitalLetters, setCapitalLetters] = useState(false);
 	const [punctuations, setPunctuations] = useState(false);
 	const [sounds, setSounds] = useState(true);
-	const stateProps = { paraLengths: [20, 30, 50, 70, 100], paraIndex, setParaIndex, capitalLetters, sounds, punctuations };
-	const settingProps = { setCapitalLetters, setCapitalLetters, setSounds, punctuations, sounds, capitalLetters }
+	const stateProps = { paraLengths: [5, 10, 20, 30], paraIndex, setParaIndex, capitalLetters, sounds, punctuations };
+	const settingProps = { setCapitalLetters, setPunctuations, setSounds, punctuations, sounds, capitalLetters }
 
 	return (
 		<BrowserRouter>
@@ -28,6 +29,9 @@ const App = () => {
 				</Route>
 				<Route path="/account" exact>
 					<AccountPage />
+				</Route>
+				<Route path="/leaderboard" exact>
+					<LeaderBoardPage />
 				</Route>
 			</Switch>
 		</BrowserRouter>

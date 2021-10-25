@@ -15,14 +15,19 @@ const Navbar = ({ paraLengths, paraIndex, setParaIndex }) => {
 						<i className="material-icons-round"> home </i>
 					</Link>
 				</div>
-				<div >
-					<Link className="btn" to="/settings">
-						<i className="material-icons-round"> settings </i>
+				<div>
+					<Link className="btn" to="/leaderboard">
+						<i className="material-icons-round"> leaderboard </i>
 					</Link>
 				</div>
 				<div>
 					<Link className="btn" to="/account">
 						<i className="material-icons-round"> person </i>
+					</Link>
+				</div>
+				<div >
+					<Link className="btn" to="/settings">
+						<i className="material-icons-round"> settings </i>
 					</Link>
 				</div>
 			</div>

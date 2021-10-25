@@ -3,14 +3,14 @@ import { useContext } from "react";
 import DoneTable from "./DoneTable";
 import RestartButton from "./RestartButton";
 import { authContext } from "../../AuthProvider";
-import { update } from "../LeaderBoardPage";
+import { updateLeaderBoard } from "../LeaderBoardPage";
 import LoginButton from "../LoginButton";
 import "./DonePage.css";
 
 const DonePage = props => {
 	const user = useContext(authContext);
 	if (user) {
-		update(user.displayName, props.wpm);
+		updateLeaderBoard(user.displayName, props.wpm);
 		return (
 			<>
 				<div className="data">

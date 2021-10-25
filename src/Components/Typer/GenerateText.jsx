@@ -88,7 +88,7 @@ let GenerateText = ({
 							time: time / 1000,
 							characters: characters.length,
 							words: paraLengths[paraIndex],
-							wpm: (correctCharCount * 12000 / time).toFixed(1),
+							wpm: parseFloat((correctCharCount * 12000 / time).toFixed(1)),
 							accuracy:
 								(correctCharCount / (correctCharCount + incorrectCharCount)) *
 								100,
