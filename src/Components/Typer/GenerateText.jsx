@@ -66,59 +66,6 @@ let GenerateText = ({
 		setIncorrectCharCount(0);
 	};
 
-	// Run after first render
-	useEffect(init, [paraLengths, paraIndex, punctuations, capitalLetters]);
-
-	// Run after every render
-	useEffect(() => {
-		const listener = ({ key }) => {
-			if (
-				(key >= "a" && key <= "z") ||
-				(key >= "A" && key <= "Z") ||
-				key === " " ||
-				(`}('".,<>{)][-+=_/*@#%^&`.includes(key))
-			) {
-				setCharactersTyped(charactersTyped + 1);
-				if (characters[cursor] === key) {
-					if (sounds) keypress();
-					if (cursor === characters.length - 1) {
-						const endTime = new Date().getTime();
-						const time = endTime - startTime;
-						onComplete({
-							time: time / 1000,
-							characters: characters.length,
-							words: paraLengths[paraIndex],
-							wpm: parseFloat((correctCharCount * 12000 / time).toFixed(1)),
-							accuracy:
-								(correctCharCount / (correctCharCount + incorrectCharCount)) *
-								100,
-						});
-					} else {
-						states[cursor] = "typed-correctly";
-						setCorrectCharCount(correctCharCount + 1);
-						setCursor(cursor + 1);
-					}
-				} else {
-					if (!ignoredKeys.includes(key)) {
-						if (sounds) error();
-						states[cursor] = "typed-incorrectly";
-						setIncorrectCharCount(incorrectCharCount + 1);
-						setStates([...states]);
-					}
-				}
-			}
-		};
-
-    setCharacters(arrayOfChars);
-    const states = new Array(arrayOfChars.length);
-    states.fill("not-typed");
-    setStates(states);
-    setCursor(0);
-    setStartTime(new Date().getTime());
-    setCharactersTyped(0);
-    setCorrectCharCount(0);
-    setIncorrectCharCount(0);
-  });
 
   // Run after first render
   useEffect(init, [paraLengths, paraIndex,punctuations,capitalLetters]);

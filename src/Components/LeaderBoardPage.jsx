@@ -20,9 +20,11 @@ const LeaderBoard = () => {
 		setResults(results);
 	}, results);
 	return (
+		
 		<div id="leaderboard">
 			<h1>LeaderBoard</h1>
-			<table>
+			{(results.length!=0)?
+			(<table>
 				{results.map(({ Name, WPM }) => (
 					<tbody>
 						<tr>
@@ -31,7 +33,9 @@ const LeaderBoard = () => {
 						</tr>
 					</tbody>
 				))}
-			</table>
+			</table>):(
+				""
+			)}
 		</div>
 	);
 }
