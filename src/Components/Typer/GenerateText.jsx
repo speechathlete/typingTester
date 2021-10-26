@@ -118,7 +118,7 @@ let GenerateText = ({
     setCharactersTyped(0);
     setCorrectCharCount(0);
     setIncorrectCharCount(0);
-  };
+  });
 
   // Run after first render
   useEffect(init, [paraLengths, paraIndex,punctuations,capitalLetters]);
