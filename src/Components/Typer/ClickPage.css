@@ -7,7 +7,7 @@
 }
 
 .button {
-  background-color: rgba(0, 0, 0, 0.3); 
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
   font-weight: bold;
   border: 3px solid #f1f1f1;
@@ -19,6 +19,5 @@
   width: 80%;
   padding: 20px;
   text-align: center;
-  outline:none;
-  
+  outline: none;
 }

@@ -1,45 +1,43 @@
-.not-typed { 
-	color: #f1c40f;	
+.not-typed {
+  color: #f1c40f;
 }
 
-.restart{
-	cursor: pointer;
+.restart {
+  cursor: pointer;
 }
 .typed-correctly {
-	color: #27ae60
+  color: #27ae60;
 }
 
 .typed-incorrectly {
-	color: red}
-	
-	@keyframes blink { 
-		50% {  
-		border-left: 1px solid transparent ;
-		}
-}
-	
-	
-.text-wrapper{
-   padding-left: .4rem;
-   position: absolute;
-   overflow: hidden;
-   height: 8rem;
-	width: 70vw;
-	left: 15vw;
-	top: 25vh;
-
+  color: red;
 }
 
-.display-text{
-	font-size: 2rem;;
-	height:8rem;
-	
+@keyframes blink {
+  50% {
+    border-left: 1px solid transparent;
+  }
 }
-.display-text>span{
-	margin-left: 1px;
+
+.text-wrapper {
+  padding-left: 0.4rem;
+  position: absolute;
+  overflow: hidden;
+  height: 8rem;
+  width: 70vw;
+  left: 15vw;
+  top: 25vh;
 }
-.current-cursor{
-	border-left: 1px solid #f1c40f;
-	animation: blink .75s step-end infinite;
-	margin-left:0px;
+
+.display-text {
+  font-size: 2rem;
+  height: 8rem;
+}
+.display-text > span {
+  margin-left: 1px;
+}
+.current-cursor {
+  border-left: 1px solid #f1c40f;
+  animation: blink 0.75s step-end infinite;
+  margin-left: 0px;
 }

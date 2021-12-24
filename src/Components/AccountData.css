@@ -1,0 +1,15 @@
+#account-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+#account-data * {
+  padding: 10px;
+}
+
+#account-data button {
+  font-size: 30px;
+}
