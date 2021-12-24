@@ -66,78 +66,82 @@ let GenerateText = ({
 		setIncorrectCharCount(0);
 	};
 
-	// Run after first render
-	useEffect(init, [paraLengths, paraIndex, punctuations, capitalLetters]);
 
-	// Run after every render
-	useEffect(() => {
-		const listener = ({ key }) => {
-			if (
-				(key >= "a" && key <= "z") ||
-				(key >= "A" && key <= "Z") ||
-				key === " " ||
-				(`}('".,<>{)][-+=_/*@#%^&`.includes(key))
-			) {
-				setCharactersTyped(charactersTyped + 1);
-				if (characters[cursor] === key) {
-					if (sounds) keypress();
-					if (cursor === characters.length - 1) {
-						const endTime = new Date().getTime();
-						const time = endTime - startTime;
-						onComplete({
-							time: time / 1000,
-							characters: characters.length,
-							words: paraLengths[paraIndex],
-							wpm: parseFloat((correctCharCount * 12000 / time).toFixed(1)),
-							accuracy:
-								(correctCharCount / (correctCharCount + incorrectCharCount)) *
-								100,
-						});
-					} else {
-						states[cursor] = "typed-correctly";
-						setCorrectCharCount(correctCharCount + 1);
-						setCursor(cursor + 1);
-					}
-				} else {
-					if (!ignoredKeys.includes(key)) {
-						if (sounds) error();
-						states[cursor] = "typed-incorrectly";
-						setIncorrectCharCount(incorrectCharCount + 1);
-						setStates([...states]);
-					}
-				}
-			}
-		};
+  // Run after first render
+  useEffect(init, [paraLengths, paraIndex,punctuations,capitalLetters]);
 
-		window.addEventListener("keyup", listener);
-		return () => window.removeEventListener("keyup", listener);
-	});
-	return (
-		<>
-			<div className="text-wrapper">
-				<div className="complete-text">
-					<div className="display-text">
-						{states.map((char, index) =>
-							index === cursor ? (
-								<span key={index} className={`${states[index]} current-cursor`}>
-									{characters[index]}
-								</span>
-							) : (
-								<span key={index} className={states[index]}>
-									{characters[index]}
-								</span>
-							)
-						)}
-					</div>
-				</div>
-			</div>
-			<div className="text-tools">
-				<div onClick={init} className="restart">
-					<i className="material-icons-round">replay</i>
-				</div>
-			</div>
-		</>
-	);
+  // Run after every render
+  useEffect(() => {
+    const listener = ({ key }) => {
+      //   console.log(key);
+      if (
+        (key >= "a" && key <= "z") ||
+        (key >= "A" && key <= "Z") ||
+        key === " "||
+		(`}('".,<>{)][-+=_/*@#%^&`.includes(key))
+      ) {
+        setCharactersTyped(charactersTyped + 1);
+        if (characters[cursor] === key) {
+          if (sounds) keypress();
+          if (cursor === characters.length - 1) {
+            const endTime = new Date().getTime();
+            const time = endTime - startTime;
+
+            onComplete({
+              time: time / 1000,
+              characters: characters.length,
+              words: paraLengths[paraIndex],
+              cpm: (correctCharCount * 60000) / time,
+              accuracy:
+                (correctCharCount / (correctCharCount + incorrectCharCount)) *
+                100,
+            });
+			// Store the data in the database if user present
+          } else {
+            states[cursor] = "typed-correctly";
+            setCorrectCharCount(correctCharCount + 1);
+            setCursor(cursor + 1);
+          }
+        } else {
+          if (!ignoredKeys.includes(key)) {
+            if (sounds) error();
+            states[cursor] = "typed-incorrectly";
+            setIncorrectCharCount(incorrectCharCount + 1);
+            setStates([...states]);
+          }
+        }
+      }
+    };
+
+    window.addEventListener("keyup", listener);
+    return () => window.removeEventListener("keyup", listener);
+  });
+  return (
+    <>
+      <div className="text-wrapper">
+        <div className="complete-text">
+          <div className="display-text">
+            {states.map((char, index) =>
+              index === cursor ? (
+                <span key={index} className={`${states[index]} current-cursor`}>
+                  {characters[index]}
+                </span>
+              ) : (
+                <span key={index} className={states[index]}>
+                  {characters[index]}
+                </span>
+              )
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="text-tools">
+        <div onClick={init} className="restart">
+          <i className="material-icons-round">replay</i>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default GenerateText;

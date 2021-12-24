@@ -1,0 +1,21 @@
+.setting-article{
+	display: flex;
+	justify-content: space-around;
+
+}
+.Setting-Buttons>div {
+	width: 100%;
+	align-items: center;
+	display: flex;
+	gap: 3rem;
+	
+}
+.Setting-Buttons{
+	display: flex;
+	align-items: left;
+	margin-left:6rem;
+	justify-content: space-evenly;
+	height: 40vh;
+	flex-direction: column;
+	width: 25%;
+}
