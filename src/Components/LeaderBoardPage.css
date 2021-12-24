@@ -1,19 +1,19 @@
 #leaderboard {
-	margin-left: auto;
-    margin-right: auto;
-	text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
-#leaderboard table{
-	margin-left: auto;
-    margin-right: auto;
-	text-align: center;
+#leaderboard table {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 #name {
-	text-align: left;
+  text-align: left;
 }
 
 #wpm {
-	text-align: right;
+  text-align: right;
 }

@@ -1,20 +1,12 @@
 import { useContext } from "react";
-import { signOut } from "../firebase";
 import { authContext } from "../AuthProvider";
 import LoginButton from "./LoginButton";
+import AccountData from "./AccountData";
 
 const AccountPage = () => {
-	const user = useContext(authContext);
-	if (user)
-		return (
-			<>
-				<h2>Name: {user.displayName}</h2>
-				<h2>Email: {user.email}</h2>
-				<button onClick={signOut}>Log Out</button>
-			</>
-		);
-	else
-		return <LoginButton />;
+  const user = useContext(authContext);
+  if (user) return <AccountData user={user} />;
+  else return <LoginButton />;
 };
 
 export default AccountPage;
