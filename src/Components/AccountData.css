@@ -1,15 +1,30 @@
 #account-data {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 30px;
+  margin-top: 5rem;
+  color: #eb5858;
 }
-
+.img-div,.img-div img{
+	border-radius: 50%;
+}
 #account-data * {
   padding: 10px;
 }
 
 #account-data button {
   font-size: 30px;
+}
+.lgbtn{
+	height: 100px;
+    width: 550px;
+    position: fixed;
+    top: calc(0.55*100vh);
+    left: calc(0.35*100vw);
+	border: none;
+	font-size: 55px;
+	background: rgb(0, 0, 0);
+	font-family:cursive;
+	color: #eb5858;
 }

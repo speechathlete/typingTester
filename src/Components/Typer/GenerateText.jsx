@@ -77,7 +77,7 @@ let GenerateText = ({
         (key >= "a" && key <= "z") ||
         (key >= "A" && key <= "Z") ||
         key === " " ||
-        `}('".,<>{)][-+=_/*@#%^&`.includes(key)
+        `}(!'".,<>{)][-+=_/*@#%^&;`.includes(key)
       ) {
         setCharactersTyped(charactersTyped + 1);
         if (characters[cursor] === key) {
