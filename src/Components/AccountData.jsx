@@ -14,21 +14,22 @@ const AccountData = ({ user }) => {
     };
     fetch();
   }, [user.email]);
-  return (<>
-    <div id="account-data">
-      <div className="img-div">
-	  <img src={user.photoURL} alt="User" />
-
-	  </div>
-<div>
-
-      <div>Name: {user.displayName}</div>
-      <div>Email: {user.email}</div>
-      <div>Best Score: {score.toString()} words per minute</div>
-</div>
-    </div>
-      <button className="btn btn-primary lgbtn" onClick={signOut}>Log Out</button>
-  </>
+  return (
+    <>
+      <div id="account-data">
+        <div className="img-div">
+          <img src={user.photoURL} alt="User" />
+        </div>
+        <div>
+          <div>Name: {user.displayName}</div>
+          <div>Email: {user.email}</div>
+          <div>Best Score: {score.toString()} words per minute</div>
+        </div>
+      </div>
+      <button className="btn btn-primary lgbtn" onClick={signOut}>
+        Log Out
+      </button>
+    </>
   );
 };
 
