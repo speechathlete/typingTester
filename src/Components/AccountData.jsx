@@ -27,7 +27,22 @@ const AccountData = ({ user }) => {
       <div>Best Score: {score.toString()} words per minute</div>
 </div>
     </div>
-      <button className="btn btn-primary lgbtn" onClick={signOut}>Log Out</button>
+	<div style={{
+	  position:"fixed",
+	  top:'22rem',
+	  left:'44rem'
+
+  }}>
+
+      <button className="btn btn-primary btn-lg " style={{
+		  top:'30rem',
+		  position: 'fixed',
+		  left: '43rem',
+		  height:' 5rem',
+		  widt:'12rem',
+		  fontSize:'2.5rem'
+	  }} onClick={signOut}>Log Out</button>
+	</div>
   </>
   );
 };
