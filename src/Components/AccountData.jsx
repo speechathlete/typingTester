@@ -14,36 +14,41 @@ const AccountData = ({ user }) => {
     };
     fetch();
   }, [user.email]);
-  return (<>
-    <div id="account-data">
-      <div className="img-div">
-	  <img src={user.photoURL} alt="User" />
-
-	  </div>
-<div>
-
-      <div>Name: {user.displayName}</div>
-      <div>Email: {user.email}</div>
-      <div>Best Score: {score.toString()} words per minute</div>
-</div>
-    </div>
-	<div style={{
-	  position:"fixed",
-	  top:'22rem',
-	  left:'44rem'
-
-  }}>
-
-      <button className="btn btn-primary btn-lg " style={{
-		  top:'30rem',
-		  position: 'fixed',
-		  left: '43rem',
-		  height:' 5rem',
-		  widt:'12rem',
-		  fontSize:'2.5rem'
-	  }} onClick={signOut}>Log Out</button>
-	</div>
-  </>
+  return (
+    <>
+      <div id="account-data">
+        <div className="img-div">
+          <img src={user.photoURL} alt="User" />
+        </div>
+        <div>
+          <div>Name: {user.displayName}</div>
+          <div>Email: {user.email}</div>
+          <div>Best Score: {score.toString()} words per minute</div>
+        </div>
+      </div>
+      <div
+        style={{
+          position: "fixed",
+          top: "22rem",
+          left: "44rem",
+        }}
+      >
+        <button
+          className="btn btn-primary btn-lg "
+          style={{
+            top: "30rem",
+            position: "fixed",
+            left: "43rem",
+            height: " 5rem",
+            widt: "12rem",
+            fontSize: "2.5rem",
+          }}
+          onClick={signOut}
+        >
+          Log Out
+        </button>
+      </div>
+    </>
   );
 };
 
