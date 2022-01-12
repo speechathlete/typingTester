@@ -6,7 +6,18 @@ import AccountData from "./AccountData";
 const AccountPage = () => {
   const user = useContext(authContext);
   if (user) return <AccountData user={user} />;
-  else return <LoginButton />;
+  else
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: "22rem",
+          left: "44rem",
+        }}
+      >
+        <LoginButton />
+      </div>
+    );
 };
 
 export default AccountPage;
